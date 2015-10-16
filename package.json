@@ -1,6 +1,6 @@
 {
   "name": "level-in",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple utility for writing to a leveldb ",
   "main": "./lib/level-in.js",
   "scripts": {
@@ -11,16 +11,14 @@
     "url": "git+https://github.com/fergiemcdowall/level-in.git"
   },
   "dependencies": {
-    "commander": "*",
-    "levelup": "*",
-    "leveldown": "*"
+    "commander": "2.9.0",
+    "levelup": "1.2.1",
+    "leveldown": "1.4.1"
   },
   "keywords": [
     "level"
   ],
-  "bin": {
-    "./bin/level-in"
-  },
+  "bin": "./bin/level-in",
   "author": "Fergus McDowall",
   "license": "MIT",
   "bugs": {
