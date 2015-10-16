@@ -10,9 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/fergiemcdowall/level-in.git"
   },
+  "dependencies": {
+    "commander": "*",
+    "levelup": "*",
+    "leveldown": "*"
+  },
   "keywords": [
     "level"
   ],
+  "bin": {
+    "./bin/level-in"
+  },
   "author": "Fergus McDowall",
   "license": "MIT",
   "bugs": {
