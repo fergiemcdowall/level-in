@@ -1,6 +1,6 @@
 {
   "name": "level-in",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple utility for writing to a leveldb ",
   "main": "./lib/level-in.js",
   "scripts": {

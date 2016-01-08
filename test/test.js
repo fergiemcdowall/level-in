@@ -64,16 +64,16 @@ test('database test', function (t) {
   const cmd4 = spawn('bin/level-in', ['-d', testDBName, '-k', testKey, '-m', 'put'])
   const cmd5 = spawn('bin/level-in', ['-d', testDBName, '-k', testKey, '-m', 'put', '-v', testValue])
   t.plan(6)
-  cmd1.stdout.on('data', (data) => {
+  cmd1.stderr.on('data', (data) => {
     t.equal(data.toString(), '[Error: you need to specify a database]\n')
   })
-  cmd2.stdout.on('data', (data) => {
+  cmd2.stderr.on('data', (data) => {
     t.equal(data.toString(), '[Error: you need to specify a key]\n')
   })
-  cmd3.stdout.on('data', (data) => {
+  cmd3.stderr.on('data', (data) => {
     t.equal(data.toString(), '[Error: you need to specify a mode (put or del)]\n')
   })
-  cmd4.stdout.on('data', (data) => {
+  cmd4.stderr.on('data', (data) => {
     t.equal(data.toString(), '[Error: you need to specify a value]\n')
   })
   cmd5.stdout.on('data', (data) => {
