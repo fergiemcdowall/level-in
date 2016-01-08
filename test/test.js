@@ -93,5 +93,3 @@ test('database test', function (t) {
     })
   })
 })
-
-// TODO: feross standard
