@@ -8,7 +8,7 @@ test('Help text test', function (t) {
   const helpLines =
   ['',
     '\n',
-    '  Usage: level-in [options]',
+    '  Usage: level-in <databaseName> [options]',
     '\n',
     '',
     '\n',
@@ -16,31 +16,29 @@ test('Help text test', function (t) {
     '\n',
     '',
     '\n',
-    '    -h, --help              output usage information',
+    '    -h, --help           output usage information',
     '\n',
-    '    -V, --version           output the version number',
+    '    -V, --version        output the version number',
     '\n',
-    '    -d, --database [value]  the name of the leveldb',
+    '    -k, --key [value]    specify a key',
     '\n',
-    '    -k, --key [value]       specify a key',
+    '    -m, --mode [value]   specify a mode, can be either "put" or "del"',
     '\n',
-    '    -m, --mode [value]      specify a mode, can be either "put" or "del"',
-    '\n',
-    '    -v, --value [value]     specify a value',
+    '    -v, --value [value]  specify a value',
     '\n',
     '',
     '\n',
     ''
   ]
-  t.plan(50)
+  t.plan(46)
   noParamCmd.stdout.on('data', (data) => {
     data.toString().split(/(\r?\n)/g).forEach(function (line, i) {
-      t.equal(helpLines[i], line)
+      t.equal(line, helpLines[i])
     })
   })
   helpCmd.stdout.on('data', (data) => {
     data.toString().split(/(\r?\n)/g).forEach(function (line, i) {
-      t.equal(helpLines[i], line)
+      t.equal(line, helpLines[i])
     })
   })
 })
@@ -58,15 +56,11 @@ test('database test', function (t) {
   const testDBName = 'testDB'
   const testKey = 'foo'
   const testValue = 'bar'
-  const cmd1 = spawn('bin/level-in', ['-d'])
-  const cmd2 = spawn('bin/level-in', ['-d', testDBName])
-  const cmd3 = spawn('bin/level-in', ['-d', testDBName, '-k', testKey])
-  const cmd4 = spawn('bin/level-in', ['-d', testDBName, '-k', testKey, '-m', 'put'])
-  const cmd5 = spawn('bin/level-in', ['-d', testDBName, '-k', testKey, '-m', 'put', '-v', testValue])
-  t.plan(6)
-  cmd1.stderr.on('data', (data) => {
-    t.equal(data.toString(), '[Error: you need to specify a database]\n')
-  })
+  const cmd2 = spawn('bin/level-in', [testDBName])
+  const cmd3 = spawn('bin/level-in', [testDBName, '-k', testKey])
+  const cmd4 = spawn('bin/level-in', [testDBName, '-k', testKey, '-m', 'put'])
+  const cmd5 = spawn('bin/level-in', [testDBName, '-k', testKey, '-m', 'put', '-v', testValue])
+  t.plan(5)
   cmd2.stderr.on('data', (data) => {
     t.equal(data.toString(), '[Error: you need to specify a key]\n')
   })
@@ -86,7 +80,7 @@ test('database test', function (t) {
           if (err) {
             throw err
           } else {
-            t.equal(testValue, val)
+            t.equal(val, testValue)
           }
         })
       }
