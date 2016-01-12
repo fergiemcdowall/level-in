@@ -4,7 +4,7 @@
   "description": "A simple utility for writing to a leveldb ",
   "main": "./lib/level-in.js",
   "scripts": {
-    "test": "rm -rf testDB && standard && node test/test.js"
+    "test": "rm -rf test/sandbox && mkdir test/sandbox && standard && node test/test.js"
   },
   "repository": {
     "type": "git",
