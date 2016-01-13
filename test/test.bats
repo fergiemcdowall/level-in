@@ -71,4 +71,24 @@ SANDBOX=test/sandbox
   [ $status = 0 ]
 }
 
+@test "Can delete?" {
+  run ./bin/level-in $SANDBOX/testDB -m del -k 7
+  [ "${lines[0]}" = '7 deleted from test/sandbox/testDB' ]
+  [ $status = 0 ]
+}
+
+@test "Can verify delete?" {
+  run level-out $SANDBOX/testDB
+  [ "${lines[0]}" = "{ key: '1', value: 'one' }" ]
+  [ "${lines[1]}" = "{ key: '2', value: 'two' }" ]
+  [ "${lines[2]}" = "{ key: '3', value: 'three' }" ]
+  [ "${lines[3]}" = "{ key: '4', value: 'four' }" ]
+  [ "${lines[4]}" = "{ key: '5', value: 'five' }" ]
+  [ "${lines[5]}" = "{ key: '6', value: 'six' }" ]
+  [ "${lines[6]}" = "{ key: '8', value: 'eight' }" ]
+  [ "${lines[7]}" = "{ key: '9', value: 'nine' }" ]
+  [ "${lines[8]}" = "{ key: 'foo', value: 'bar' }" ]
+  [ $status = 0 ]
+}
+
 #test for delete

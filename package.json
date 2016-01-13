@@ -16,6 +16,7 @@
     "leveldown": "1.4.3"
   },
   "devDependencies": {
+    "level-out": "0.0.4",
     "standard": "5.4.1",
     "tape": "4.4.0"
   },
