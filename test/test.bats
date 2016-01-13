@@ -22,7 +22,7 @@ SANDBOX=test/sandbox
 
 @test "Show version?" {
   run ./bin/level-in -V
-  [ "${lines[0]}" = "0.0.8" ]
+  [ "${lines[0]}" = "0.0.9" ]
   [ $status = 0 ]
 }
 
