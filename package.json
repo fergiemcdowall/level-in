@@ -1,6 +1,6 @@
 {
   "name": "level-in",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A simple utility for writing to a leveldb ",
   "main": "./lib/level-in.js",
   "scripts": {
@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "commander": "2.9.0",
-    "levelup": "1.3.1",
-    "leveldown": "1.4.3"
+    "levelup": "1.3.3",
+    "leveldown": "1.5.0"
   },
   "devDependencies": {
-    "level-out": "0.0.4",
-    "standard": "5.4.1",
-    "tape": "4.4.0"
+    "level-out": "0.0.7",
+    "standard": "8.4.0",
+    "tape": "4.6.2"
   },
   "bin": {
     "level-in": "./bin/level-in"
